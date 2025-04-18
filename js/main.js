@@ -15,6 +15,19 @@ const potConduir = (age) => age >= 18 ? document.getElementById("e1.2.1").innerH
 
 const ex122 = (a, b) => a > b ? document.getElementById("e1.2.2").innerHTML += "num1 és més gran" : document.getElementById("e1.2.2").innerHTML += "num2 és més gran";
 
+const ex123 = (number) => {
+    if (Math.sign(number) == 0) {
+        document.getElementById("e1.2.3").innerHTML += number + " es zero. "
+    } else if (Math.sign(number) == -1) {
+        document.getElementById("e1.2.3").innerHTML += number + " es negatiu. "
+    } else if (Math.sign(number) == 1) {
+        document.getElementById("e1.2.3").innerHTML += number + " es positiu. "
+    } else {
+        document.getElementById("e1.2.3").innerHTML += number + "Error desconegut. "
+    }
+}
+const trobarMaxim= (a,b,c)=>a>=b? (a>=c?document.getElementById("e1.2.3").innerHTML += "<br> El més gran es "+a+'.':document.getElementById("e1.2.3").innerHTML += "<br> El més gran es "+c+'.'):(b>=c?document.getElementById("e1.2.3").innerHTML += "<br> El més gran es "+b+'.':document.getElementById("e1.2.3").innerHTML += "<br> El més gran es "+c+'.');
+
 window.addEventListener(
     "load",
     () => {
@@ -25,6 +38,11 @@ window.addEventListener(
         ex115("Aqui va un missatge 3 segons tard");
         potConduir(17);
         ex122(5, 10);
+        ex123(1);
+        ex123(-1);
+        ex123(0);
+        trobarMaxim(1,2,3);
+
     },
     { once: true }
 );
