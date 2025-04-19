@@ -31,9 +31,12 @@ const trobarMaxim = (a, b, c) => a >= b ? (a >= c ? document.getElementById("e1.
 const parOImpar = (numbersArr) => {
     console.log(numbersArr)
     for (let i = 0; i < numbersArr.length; i++) {
-        console.log(i)
         numbersArr[i] % 2 == 0 ? (i != numbersArr.length ? document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es parell, " : document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es parell.") : (i != numbersArr.length ? document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es imparell, " : document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es imparell.")
     }
+}
+const processar = (callback, number) => {
+    document.getElementById("e1.3.1").innerHTML += "1.2.1 ara també mostra un conductor de 18 anys";
+    callback(number);
 }
 
 window.addEventListener(
@@ -51,7 +54,7 @@ window.addEventListener(
         ex123(0);
         trobarMaxim(1, 2, 3);
         parOImpar([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]);
-
+        processar(potConduir, 18)
     },
     { once: true }
 );
