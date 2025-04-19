@@ -38,6 +38,7 @@ const processar = (callback, number) => {
     document.getElementById("e1.3.1").innerHTML += "1.2.1 ara també mostra un conductor de 18 anys";
     callback(number);
 }
+const calculadora=(num1,num2,callback)=> callback(num1,num2);
 
 window.addEventListener(
     "load",
@@ -55,6 +56,7 @@ window.addEventListener(
         trobarMaxim(1, 2, 3);
         parOImpar([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]);
         processar(potConduir, 18)
+        calculadora(2,2,add)
     },
     { once: true }
 );
