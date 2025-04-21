@@ -47,6 +47,8 @@ const esperarISaludar = (name, callback) => setInterval(callback, 2000, name);
 
 const processarElements = (callback, arr) => callback(arr);
 
+const processarCadena = (str, callback) => callback(str.toUpperCase())
+
 window.addEventListener(
     "load",
     () => {
@@ -68,7 +70,10 @@ window.addEventListener(
         processar(potConduir, 18);
         calculadora(2, 2, add);
         esperarISaludar('Vania', greet);
-        processarElements(printNumbers, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
+        processarElements(printNumbers, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]);
+        processarCadena("Vania", ex115);
+        //1.4 Rest & Spread operators
+        
 
     },
     { once: true }
