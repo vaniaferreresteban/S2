@@ -47,7 +47,12 @@ const esperarISaludar = (name, callback) => setInterval(callback, 2000, name);
 
 const processarElements = (callback, arr) => callback(arr);
 
-const processarCadena = (str, callback) => callback(str.toUpperCase())
+const processarCadena = (str, callback) => callback(str.toUpperCase());
+
+//1.4 Rest & Spread operators
+const ex141 = (...args)=>{
+    document.getElementById("e1.4.1").innerHTML += args;
+}
 
 window.addEventListener(
     "load",
@@ -73,7 +78,7 @@ window.addEventListener(
         processarElements(printNumbers, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]);
         processarCadena("Vania", ex115);
         //1.4 Rest & Spread operators
-        
+        ex141([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97], [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97].reverse());
 
     },
     { once: true }
