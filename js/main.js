@@ -42,7 +42,10 @@ const processar = (callback, number) => {
     callback(number);
 }
 const calculadora = (num1, num2, callback) => callback(num1, num2);
-const esperarISaludar = (callback, arr) => callback(arr);
+
+const esperarISaludar = (name, callback) => setInterval(callback, 2000, name);
+
+const processarElements = (callback, arr) => callback(arr);
 
 window.addEventListener(
     "load",
@@ -64,7 +67,8 @@ window.addEventListener(
         //1.3 Callbacks
         processar(potConduir, 18);
         calculadora(2, 2, add);
-        esperarISaludar(printNumbers, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]);
+        esperarISaludar('Vania', greet);
+        processarElements(printNumbers, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
 
     },
     { once: true }
