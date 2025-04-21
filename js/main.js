@@ -50,9 +50,16 @@ const processarElements = (callback, arr) => callback(arr);
 const processarCadena = (str, callback) => callback(str.toUpperCase());
 
 //1.4 Rest & Spread operators
-const ex141 = (...args)=>{
+const ex141 = (...args) => {
     document.getElementById("e1.4.1").innerHTML += args;
 }
+const suma = (...numbers) => {
+    let total = 0;
+    numbers.forEach(num => {
+        total += num
+    })
+    document.getElementById("e1.4.2").innerHTML += total;
+};
 
 window.addEventListener(
     "load",
@@ -61,7 +68,7 @@ window.addEventListener(
         add(2, 3);
         randomNumber();
         greet('Vania');
-        printNumbers([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]);
+        printNumbers([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
         ex115("Aqui va un missatge 3 segons tard");
         //1.2 Operadors Ternaris
         potConduir(17);
@@ -70,15 +77,16 @@ window.addEventListener(
         ex123(-1);
         ex123(0);
         trobarMaxim(1, 2, 3);
-        parOImpar([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]);
+        parOImpar([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
         //1.3 Callbacks
         processar(potConduir, 18);
         calculadora(2, 2, add);
         esperarISaludar('Vania', greet);
-        processarElements(printNumbers, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]);
+        processarElements(printNumbers, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
         processarCadena("Vania", ex115);
         //1.4 Rest & Spread operators
-        ex141([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97], [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97].reverse());
+        ex141([2, 3, 5, 7, 11, 13, 17, 19, 23, 29].reverse());
+        suma(2, 5, 8, 10);
 
     },
     { once: true }
