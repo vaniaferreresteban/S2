@@ -60,6 +60,13 @@ const suma = (...numbers) => {
     })
     document.getElementById("e1.4.2").innerHTML += total;
 };
+const ex143 = () => {
+    const objecte1 = { "tipus": "vinyl", "nom": "Ben Kaye - Constitution" };
+    const objecte2 = { ...objecte1 };
+    objecte2.label = "Tidy Trax – TIDY185T";
+    document.getElementById("e1.4.3").innerHTML +='objecte1: '+ JSON.stringify(objecte1) + '<br>objecte1: '+ JSON.stringify(objecte2);
+    ;
+}
 
 window.addEventListener(
     "load",
@@ -87,6 +94,7 @@ window.addEventListener(
         //1.4 Rest & Spread operators
         ex141([2, 3, 5, 7, 11, 13, 17, 19, 23, 29].reverse());
         suma(2, 5, 8, 10);
+        ex143()
 
     },
     { once: true }
