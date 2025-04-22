@@ -87,23 +87,24 @@ const ex146 = () => {
 
 
 //1.5: Array transformations
-const ex151 = (args) => {
+const ex151 = (args) =>
     document.getElementById("e1.5.1").innerHTML +=
-        args.map(arg => arg * 2);
-};
-const ex152 = (args) => {
-    document.getElementById("e1.5.2").innerHTML +=
-        args.filter(arg => arg % 2 == 0);
-}
-const ex153 = (args) => {
-    document.getElementById("e1.5.3").innerHTML +=
-        args.find(arg => arg>10);
-}
+    args.map(arg => arg * 2);
 
-const ex154=(args)=>{
+const ex152 = (args) => document.getElementById("e1.5.2").innerHTML +=
+    args.filter(arg => arg % 2 == 0);
+
+const ex153 = (args) => document.getElementById("e1.5.3").innerHTML += args.find(arg => arg > 10);
+
+
+const ex154 = (args) =>
     document.getElementById("e1.5.4").innerHTML +=
-        args.reduce((arg,currentValue )=> arg+=currentValue);
-}
+    args.reduce((arg, currentValue) => arg += currentValue);
+    
+const ex155 = args => document.getElementById("e1.5.5").innerHTML += args.filter(arg => arg <= 10).map(arg => arg * 2).reduce((acc, curr) => acc += curr);
+
+const ex156 = args => document.getElementById("e1.5.6").innerHTML += args.every(arg => arg > 10) + ',' + args.some(arg => arg > 10);
+
 
 window.addEventListener(
     "load",
@@ -138,8 +139,10 @@ window.addEventListener(
         //1.5: Array transformations
         ex151([1, 2, 3, 4]);
         ex152([1, 2, 3, 4]);
-        ex153([1, 10 , 8, 11]);
+        ex153([1, 10, 8, 11]);
         ex154([13, 7, 8, 21]);
+        ex155([1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9]);
+        ex156([11, 12, 13, 14]);
     },
     { once: true }
 );
