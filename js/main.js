@@ -32,7 +32,6 @@ const ex123 = (number) => {
 const trobarMaxim = (a, b, c) => a >= b ? (a >= c ? document.getElementById("e1.2.3").innerHTML += "<br> El més gran es " + a + '.' : document.getElementById("e1.2.3").innerHTML += "<br> El més gran es " + c + '.') : (b >= c ? document.getElementById("e1.2.3").innerHTML += "<br> El més gran es " + b + '.' : document.getElementById("e1.2.3").innerHTML += "<br> El més gran es " + c + '.');
 
 const parOImpar = (numbersArr) => {
-    console.log(numbersArr)
     for (let i = 0; i < numbersArr.length; i++) {
         numbersArr[i] % 2 == 0 ? (i != numbersArr.length ? document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es parell, " : document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es parell.") : (i != numbersArr.length ? document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es imparell, " : document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es imparell.")
     }
@@ -65,7 +64,7 @@ const ex143 = () => {
     const objecte2 = { ...objecte1 };
     objecte2.label = "Tidy Trax – TIDY185T";
     document.getElementById("e1.4.3").innerHTML += 'objecte1: ' + JSON.stringify(objecte1) + '<br>objecte2: ' + JSON.stringify(objecte2);
-    
+
 }
 
 const ex144 = (args) => {
@@ -81,10 +80,17 @@ const ex145 = (...rest) => {
 
 const ex146 = () => {
     const objecte1 = { "tipus": "Vinyl", "nom": "Ben Kaye - Constitution" };
-    const objecte2 = {  "Album": "Super Eurobeat Vol. 178","any":"2007" };
+    const objecte2 = { "Album": "Super Eurobeat Vol. 178", "any": "2007" };
     const objecte3 = { ...objecte1, ...objecte2 };
-    document.getElementById("e1.4.6").innerHTML += 'objecte1: ' + JSON.stringify(objecte1) + '<br>objecte2: ' + JSON.stringify(objecte2)+ '<br>objecte3: ' + JSON.stringify(objecte3);
+    document.getElementById("e1.4.6").innerHTML += 'objecte1: ' + JSON.stringify(objecte1) + '<br>objecte2: ' + JSON.stringify(objecte2) + '<br>objecte3: ' + JSON.stringify(objecte3);
 }
+
+
+//1.5: Array transformations
+const ex151 = (args) => {
+    document.getElementById("e1.5.1").innerHTML += 
+    args.map(arg => arg * 2);
+};
 
 window.addEventListener(
     "load",
@@ -116,7 +122,8 @@ window.addEventListener(
         ex144([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
         ex145([2, 3, 5]);
         ex146();
-
+        //1.5: Array transformations
+        ex151([1, 2, 3, 4]);
     },
     { once: true }
 );
