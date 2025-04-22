@@ -64,9 +64,10 @@ const ex143 = () => {
     const objecte1 = { "tipus": "vinyl", "nom": "Ben Kaye - Constitution" };
     const objecte2 = { ...objecte1 };
     objecte2.label = "Tidy Trax – TIDY185T";
-    document.getElementById("e1.4.3").innerHTML += 'objecte1: ' + JSON.stringify(objecte1) + '<br>objecte1: ' + JSON.stringify(objecte2);
-    ;
+    document.getElementById("e1.4.3").innerHTML += 'objecte1: ' + JSON.stringify(objecte1) + '<br>objecte2: ' + JSON.stringify(objecte2);
+    
 }
+
 const ex144 = (args) => {
     let a, b, rest;
     [a, b] = [2, 3];
@@ -75,8 +76,14 @@ const ex144 = (args) => {
 }
 
 const ex145 = (...rest) => {
-
     document.getElementById("e1.4.5").innerHTML += rest;
+}
+
+const ex146 = () => {
+    const objecte1 = { "tipus": "Vinyl", "nom": "Ben Kaye - Constitution" };
+    const objecte2 = {  "Album": "Super Eurobeat Vol. 178","any":"2007" };
+    const objecte3 = { ...objecte1, ...objecte2 };
+    document.getElementById("e1.4.6").innerHTML += 'objecte1: ' + JSON.stringify(objecte1) + '<br>objecte2: ' + JSON.stringify(objecte2)+ '<br>objecte3: ' + JSON.stringify(objecte3);
 }
 
 window.addEventListener(
@@ -108,6 +115,7 @@ window.addEventListener(
         ex143();
         ex144([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
         ex145([2, 3, 5]);
+        ex146();
 
     },
     { once: true }
