@@ -100,6 +100,11 @@ const ex153 = (args) => {
         args.find(arg => arg>10);
 }
 
+const ex154=(args)=>{
+    document.getElementById("e1.5.4").innerHTML +=
+        args.reduce((arg,currentValue )=> arg+=currentValue);
+}
+
 window.addEventListener(
     "load",
     () => {
@@ -134,6 +139,7 @@ window.addEventListener(
         ex151([1, 2, 3, 4]);
         ex152([1, 2, 3, 4]);
         ex153([1, 10 , 8, 11]);
+        ex154([13, 7, 8, 21]);
     },
     { once: true }
 );
