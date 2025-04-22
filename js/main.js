@@ -88,9 +88,13 @@ const ex146 = () => {
 
 //1.5: Array transformations
 const ex151 = (args) => {
-    document.getElementById("e1.5.1").innerHTML += 
-    args.map(arg => arg * 2);
+    document.getElementById("e1.5.1").innerHTML +=
+        args.map(arg => arg * 2);
 };
+const ex152 = (args) => {
+    document.getElementById("e1.5.2").innerHTML +=
+        args.filter(arg => arg % 2 == 0);
+}
 
 window.addEventListener(
     "load",
@@ -124,6 +128,7 @@ window.addEventListener(
         ex146();
         //1.5: Array transformations
         ex151([1, 2, 3, 4]);
+        ex152([1, 2, 3, 4]);
     },
     { once: true }
 );
