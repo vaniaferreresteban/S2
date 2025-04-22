@@ -72,8 +72,11 @@ const ex144 = (args) => {
     [a, b] = [2, 3];
     [a, b, ...rest] = args;
     document.getElementById("e1.4.4").innerHTML += rest;
+}
 
+const ex145 = (...rest) => {
 
+    document.getElementById("e1.4.5").innerHTML += rest;
 }
 
 window.addEventListener(
@@ -104,6 +107,7 @@ window.addEventListener(
         suma(2, 5, 8, 10);
         ex143();
         ex144([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
+        ex145([2, 3, 5]);
 
     },
     { once: true }
