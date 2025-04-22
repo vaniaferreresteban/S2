@@ -100,11 +100,40 @@ const ex153 = (args) => document.getElementById("e1.5.3").innerHTML += args.find
 const ex154 = (args) =>
     document.getElementById("e1.5.4").innerHTML +=
     args.reduce((arg, currentValue) => arg += currentValue);
-    
+
 const ex155 = args => document.getElementById("e1.5.5").innerHTML += args.filter(arg => arg <= 10).map(arg => arg * 2).reduce((acc, curr) => acc += curr);
 
 const ex156 = args => document.getElementById("e1.5.6").innerHTML += args.every(arg => arg > 10) + ',' + args.some(arg => arg > 10);
 
+//1.6: Array loops
+const ex161 = args => args.forEach(arg => console.log(arg));
+const ex162 = args => {
+    for (let arg of args) console.log(arg);
+}
+const ex163 = args => {
+    const newArgs = [...args.filter(arg => arg % 2 == 0)];
+    document.getElementById("e1.6.3").innerHTML += newArgs;
+}
+const ex164 = object => {
+    for (const property in object) {
+        console.log(`${property}:${object[property]}`)
+    }
+}
+const ex165=args=>{
+    for(let arg of args){
+        console.log(arg)
+        if(arg==5){
+            break;
+        }
+    }
+}
+const ex166=args=>{
+    let i =0;
+    for(let arg of args){
+        console.log(arg,i);
+        i++;
+    }
+}
 
 window.addEventListener(
     "load",
@@ -143,6 +172,13 @@ window.addEventListener(
         ex154([13, 7, 8, 21]);
         ex155([1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9]);
         ex156([11, 12, 13, 14]);
+        //1.6: Array loops
+        ex161(['Anna', 'Bernat', 'Clara']);
+        ex162(['Anna', 'Bernat', 'Clara']);
+        ex163([1, 2, 3, 4, 5, 6]);
+        ex164({ 'nom': 'Ona', 'edat': 25, 'ciutat': 'Barcelona' });
+        ex165([1, 2, 3, 4, 5, 6] );
+        ex166(['Anna', 'Bernat', 'Clara']);
     },
     { once: true }
 );
