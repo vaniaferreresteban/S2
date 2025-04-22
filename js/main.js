@@ -95,6 +95,10 @@ const ex152 = (args) => {
     document.getElementById("e1.5.2").innerHTML +=
         args.filter(arg => arg % 2 == 0);
 }
+const ex153 = (args) => {
+    document.getElementById("e1.5.3").innerHTML +=
+        args.find(arg => arg>10);
+}
 
 window.addEventListener(
     "load",
@@ -129,6 +133,7 @@ window.addEventListener(
         //1.5: Array transformations
         ex151([1, 2, 3, 4]);
         ex152([1, 2, 3, 4]);
+        ex153([1, 10 , 8, 11]);
     },
     { once: true }
 );
