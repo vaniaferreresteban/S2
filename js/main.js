@@ -178,6 +178,34 @@ const ex175 = async phrase => {
         document.getElementById("e1.7.5").innerHTML += myReject;
     }
 }
+const ex176 = (phrase) => {
+    const dosSecs = new Promise(function (resolve, reject) {
+        if (phrase == 'Hola') {
+            reject('Està prohibit dir "Hola"');
+        }
+        setTimeout(function () {
+            resolve(phrase);
+        }, 2000)
+    });
+    const tresSecs = new Promise(function (resolve, reject) {
+        if (phrase == 'Holis') {
+            reject('Està prohibit dir "Holis"');
+        }
+        setTimeout(function () {
+            resolve(phrase);
+        }, 3000)
+    });
+    Promise.all([dosSecs, tresSecs]).then(
+        (values) => {
+            document.getElementById("e1.7.6").innerHTML += values
+        },
+            (error) => {
+                document.getElementById("e1.7.6").innerHTML += error;
+            }
+        )
+}
+
+
 
 
 
@@ -231,6 +259,7 @@ window.addEventListener(
         ex173('Hola');
         ex174('Holis');
         ex175('Hola');
+        ex176('Holis');
     },
     { once: true }
 );
