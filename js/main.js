@@ -119,20 +119,38 @@ const ex164 = object => {
         console.log(`${property}:${object[property]}`)
     }
 }
-const ex165=args=>{
-    for(let arg of args){
+const ex165 = args => {
+    for (let arg of args) {
         console.log(arg)
-        if(arg==5){
+        if (arg == 5) {
             break;
         }
     }
 }
-const ex166=args=>{
-    let i =0;
-    for(let arg of args){
-        console.log(arg,i);
+const ex166 = args => {
+    let i = 0;
+    for (let arg of args) {
+        console.log(arg, i);
         i++;
     }
+}
+
+//Exercici 1.7: Promises & Async/Await
+const ex171 = phrase => {
+    return new Promise(function (myResolve, myReject) {
+        setTimeout(function () {
+            myResolve(phrase);
+        }, 2000)
+    });
+}
+const ex172 = (phrase) => {
+    ex171(phrase).then(
+        function (value) {
+            document.getElementById("e1.7.2").innerHTML += value;
+        },
+        function (error) {
+            document.getElementById("e1.7.2").innerHTML += error;
+        })
 }
 
 window.addEventListener(
@@ -177,8 +195,11 @@ window.addEventListener(
         ex162(['Anna', 'Bernat', 'Clara']);
         ex163([1, 2, 3, 4, 5, 6]);
         ex164({ 'nom': 'Ona', 'edat': 25, 'ciutat': 'Barcelona' });
-        ex165([1, 2, 3, 4, 5, 6] );
+        ex165([1, 2, 3, 4, 5, 6]);
         ex166(['Anna', 'Bernat', 'Clara']);
+        //Exercici 1.7: Promises & Async/Await
+        ex171('Hola món');
+        ex172('Hola món');
     },
     { once: true }
 );
