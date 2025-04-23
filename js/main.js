@@ -138,6 +138,9 @@ const ex166 = args => {
 //Exercici 1.7: Promises & Async/Await
 const ex171 = phrase => {
     return new Promise(function (myResolve, myReject) {
+        if (phrase != 'Hola') {
+            myReject('Està prohibit no dir "Hola"');
+        }
         setTimeout(function () {
             myResolve(phrase);
         }, 2000)
@@ -152,13 +155,13 @@ const ex172 = (phrase) => {
             document.getElementById("e1.7.2").innerHTML += error;
         })
 }
-const ex173=(phrase)=>{
+const ex173 = (phrase) => {
     new Promise(function (myResolve, myReject) {
-        if(phrase!='Hola'){
+        if (phrase != 'Hola') {
             myReject('Està prohibit no dir "Hola"');
         }
-            myResolve(phrase);
-        }).then(
+        myResolve(phrase);
+    }).then(
         function (value) {
             document.getElementById("e1.7.3").innerHTML += value;
         },
@@ -166,9 +169,17 @@ const ex173=(phrase)=>{
             document.getElementById("e1.7.3").innerHTML += error;
         });
 }
- const ex174 = async (phrase)=>{
-    console.log(await ex171(phrase))
- }
+const ex174 = async phrase => console.log(await ex171(phrase))
+const ex175 = async phrase => {
+    try {
+        const myPromise = await ex171(phrase)
+        document.getElementById("e1.7.5").innerHTML += myPromise;
+    } catch (myReject) {
+        document.getElementById("e1.7.5").innerHTML += myReject;
+    }
+}
+
+
 
 window.addEventListener(
     "load",
@@ -219,6 +230,7 @@ window.addEventListener(
         ex172('Hola món');
         ex173('Hola');
         ex174('Holis');
+        ex175('Hola');
     },
     { once: true }
 );
