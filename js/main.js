@@ -152,6 +152,20 @@ const ex172 = (phrase) => {
             document.getElementById("e1.7.2").innerHTML += error;
         })
 }
+const ex173=(phrase)=>{
+    new Promise(function (myResolve, myReject) {
+        if(phrase!='Hola'){
+            myReject('Està prohibit no dir "Hola"');
+        }
+            myResolve(phrase);
+        }).then(
+        function (value) {
+            document.getElementById("e1.7.3").innerHTML += value;
+        },
+        function (error) {
+            document.getElementById("e1.7.3").innerHTML += error;
+        });
+}
 
 window.addEventListener(
     "load",
@@ -200,6 +214,7 @@ window.addEventListener(
         //Exercici 1.7: Promises & Async/Await
         ex171('Hola món');
         ex172('Hola món');
+        ex173('Hola');
     },
     { once: true }
 );
