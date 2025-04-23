@@ -166,6 +166,9 @@ const ex173=(phrase)=>{
             document.getElementById("e1.7.3").innerHTML += error;
         });
 }
+ const ex174 = async (phrase)=>{
+    console.log(await ex171(phrase))
+ }
 
 window.addEventListener(
     "load",
@@ -215,6 +218,7 @@ window.addEventListener(
         ex171('Hola món');
         ex172('Hola món');
         ex173('Hola');
+        ex174('Holis');
     },
     { once: true }
 );
