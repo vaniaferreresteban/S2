@@ -14,26 +14,43 @@ const ex115 = (message) => setTimeout(() => {
 }, "3000");
 
 //1.2 Operadors Ternaris
-const potConduir = (age) => age >= 18 ? document.getElementById("e1.2.1").innerHTML += "Pots conduïr" : document.getElementById("e1.2.1").innerHTML += "No pots conduir";
+const potConduir = (age) => {
+    let e121HTML = document.getElementById("e1.2.1").innerHTML;
 
-const ex122 = (a, b) => a > b ? document.getElementById("e1.2.2").innerHTML += "num1 és més gran" : document.getElementById("e1.2.2").innerHTML += "num2 és més gran";
+    age >= 18 ? e121HTML += "Pots conduïr" : e121HTML += "No pots conduir";
+}
+
+
+const ex122 = (a, b) => {
+    let e122HTML = document.getElementById("e1.2.2").innerHTML;
+
+    a > b ? e122HTML += "num1 és més gran" : e122HTML += "num2 és més gran";
+}
 
 const ex123 = (number) => {
+    let e123HTML = document.getElementById("e1.2.3").innerHTML;
+
     if (Math.sign(number) == 0) {
-        document.getElementById("e1.2.3").innerHTML += number + " es zero. "
+        e123HTML += number + " es zero. "
     } else if (Math.sign(number) == -1) {
-        document.getElementById("e1.2.3").innerHTML += number + " es negatiu. "
+        e123HTML += number + " es negatiu. "
     } else if (Math.sign(number) == 1) {
-        document.getElementById("e1.2.3").innerHTML += number + " es positiu. "
+        e123HTML += number + " es positiu. "
     } else {
-        document.getElementById("e1.2.3").innerHTML += number + "Error desconegut. "
+        e123HTML += number + "Error desconegut. "
     }
 }
-const trobarMaxim = (a, b, c) => a >= b ? (a >= c ? document.getElementById("e1.2.3").innerHTML += "<br> El més gran es " + a + '.' : document.getElementById("e1.2.3").innerHTML += "<br> El més gran es " + c + '.') : (b >= c ? document.getElementById("e1.2.3").innerHTML += "<br> El més gran es " + b + '.' : document.getElementById("e1.2.3").innerHTML += "<br> El més gran es " + c + '.');
+const trobarMaxim = (a, b, c) => {
+    let e123HTML = document.getElementById("e1.2.3").innerHTML;
+
+    a >= b ? (a >= c ? e123HTML += "<br> El més gran es " + a + '.' : e123HTML += "<br> El més gran es " + c + '.') : (b >= c ? e123HTML += "<br> El més gran es " + b + '.' : e123HTML += "<br> El més gran es " + c + '.');
+}
 
 const parOImpar = (numbersArr) => {
+    let e124HTML = document.getElementById("e1.2.4").innerHTML;
+
     for (let i = 0; i < numbersArr.length; i++) {
-        numbersArr[i] % 2 == 0 ? (i != numbersArr.length ? document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es parell, " : document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es parell.") : (i != numbersArr.length ? document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es imparell, " : document.getElementById("e1.2.4").innerHTML += numbersArr[i] + " es imparell.")
+        numbersArr[i] % 2 == 0 ? (i != numbersArr.length ? e124HTML += numbersArr[i] + " es parell, " : e124HTML += numbersArr[i] + " es parell.") : (i != numbersArr.length ? e124HTML += numbersArr[i] + " es imparell, " : e124HTML += numbersArr[i] + " es imparell.")
     }
 }
 //1.3 Callbacks
@@ -68,20 +85,25 @@ const ex143 = () => {
 }
 
 const ex144 = (args) => {
+    let e144HTML = document.getElementById("e1.4.4").innerHTML;
     let a, b, rest;
     [a, b] = [2, 3];
     [a, b, ...rest] = args;
-    document.getElementById("e1.4.4").innerHTML += rest;
+    e144HTML += rest;
 }
 
 const ex145 = (...rest) => {
-    document.getElementById("e1.4.5").innerHTML += rest;
+    let e145HTML = document.getElementById("e1.4.5").innerHTML;
+    e145HTML += rest;
 }
 
 const ex146 = () => {
+
     const objecte1 = { "tipus": "Vinyl", "nom": "Ben Kaye - Constitution" };
     const objecte2 = { "Album": "Super Eurobeat Vol. 178", "any": "2007" };
     const objecte3 = { ...objecte1, ...objecte2 };
+
+    let e146HTML = document.getElementById("e1.4.6").innerHTML;
     document.getElementById("e1.4.6").innerHTML += 'objecte1: ' + JSON.stringify(objecte1) + '<br>objecte2: ' + JSON.stringify(objecte2) + '<br>objecte3: ' + JSON.stringify(objecte3);
 }
 
@@ -147,12 +169,17 @@ const ex171 = phrase => {
     });
 }
 const ex172 = (phrase) => {
+    let e172HTML = document.getElementById("e1.7.2").innerHTML;
+    let e173HTML = document.getElementById("e1.7.3").innerHTML;
+    let e175HTML = document.getElementById("e1.7.5").innerHTML;
+    let e176HTML = document.getElementById("e1.7.6").innerHTML;
+
     ex171(phrase).then(
         function (value) {
-            document.getElementById("e1.7.2").innerHTML += value;
+            e172HTML += value;
         },
         function (error) {
-            document.getElementById("e1.7.2").innerHTML += error;
+            e172HTML += error;
         })
 }
 const ex173 = (phrase) => {
@@ -163,19 +190,19 @@ const ex173 = (phrase) => {
         myResolve(phrase);
     }).then(
         function (value) {
-            document.getElementById("e1.7.3").innerHTML += value;
+            e173HTML += value;
         },
         function (error) {
-            document.getElementById("e1.7.3").innerHTML += error;
+            e173HTML += error;
         });
 }
 const ex174 = async phrase => console.log(await ex171(phrase))
 const ex175 = async phrase => {
     try {
         const myPromise = await ex171(phrase)
-        document.getElementById("e1.7.5").innerHTML += myPromise;
+        e175HTML += myPromise;
     } catch (myReject) {
-        document.getElementById("e1.7.5").innerHTML += myReject;
+        e175HTML += myReject;
     }
 }
 const ex176 = (phrase) => {
@@ -197,12 +224,12 @@ const ex176 = (phrase) => {
     });
     Promise.all([dosSecs, tresSecs]).then(
         (values) => {
-            document.getElementById("e1.7.6").innerHTML += values
+            e176HTML += values
         },
-            (error) => {
-                document.getElementById("e1.7.6").innerHTML += error;
-            }
-        )
+        (error) => {
+            e176HTML += error;
+        }
+    )
 }
 
 
