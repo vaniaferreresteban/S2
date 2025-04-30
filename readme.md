@@ -24,6 +24,7 @@ No specific installation steps are needed for this exercise. To work with the fi
     ```bash
     git clone 'https://github.com/vaniaferreresteban/S2.git'
     cd S2
+    git checkout 2.2
     ```
 
 ## ▶️ Execution
