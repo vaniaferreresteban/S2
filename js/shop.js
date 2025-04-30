@@ -86,25 +86,30 @@ function buy(id) {
         }
     }
     // 2. Add found product to the cart array
-    if (!cart.find(obj => obj.id === selectedProduct.id)) {
+    if (cart.findIndex(obj => obj.id === selectedProduct.id) == -1) {
         selectedProduct.quantity = 1;
         cart.push(selectedProduct);
-
-    } else if (cart.find(obj => obj.id === selectedProduct.id)) {
-        obj.quantity++;
+    } else {
+        cart[cart.findIndex(obj => obj.id === selectedProduct.id)].quantity++;
     }
 
 }
 
+
 // Exercise 2
 function cleanCart() {
+
+    console.log(cart)
     cart = [];
+
+    console.log(cart)
 }
 
 // Exercise 3
 function calculateTotal() {
     // Calculate total price of the cart using the "cartList" array
     const cartTotal = cart.reduce(obj, prevTotal => obj.price + prevTotal);
+    console.log(cartTotal)
     return cartTotal;
 }
 
