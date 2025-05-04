@@ -86,11 +86,15 @@ function buy(id) {
         }
     }
     // 2. Add found product to the cart array
-    if (cart.findIndex(obj => obj.id === selectedProduct.id) == -1) {
+    let selectedIsAtCart = cart.findIndex(obj => obj.id === selectedProduct.id);
+
+    if (selectedIsAtCart == -1) {
         selectedProduct.quantity = 1;
         cart.push(selectedProduct);
     } else {
-        cart[cart.findIndex(obj => obj.id === selectedProduct.id)].quantity++;
+        let productIndex = cart.findIndex(obj => obj.id === selectedProduct.id);
+
+        cart[productIndex].quantity++;
     }
 
 }
@@ -98,11 +102,10 @@ function buy(id) {
 
 // Exercise 2
 function cleanCart() {
-
-    console.log(cart)
     cart = [];
-
-    console.log(cart)
+    document.getElementById("cart_list").innerHTML = '';
+    document.getElementById("total_price").innerHTML = 0;
+    printCart()
 }
 
 // Exercise 3
@@ -115,11 +118,29 @@ function calculateTotal() {
 
 // Exercise 4
 function applyPromotionsCart() {
+    cart.forEach(product => {
+        if (product.offer?.number <= product.quantity) {
+            product.subtotalWithDiscount = (product.price / 100) * (100 - product.offer?.percent);
+        }
+    });
     // Apply promotions to each item in the array "cart"
 }
 
 // Exercise 5
 function printCart() {
+    let total = 0;
+    for (let product of cart) {
+        if (product.quantity > 0) {
+            document.getElementById("cart_list").innerHTML += `<tr>
+								<th scope="row">${product.name}</th>
+								<td>${product.price.toFixed(2)}</td>
+								<td>${product.quantity}</td>
+								<td>${(product.subtotalWithDiscount) ? (product.quantity * product.subtotalWithDiscount).toFixed(2) : (product.quantity * product.price).toFixed(2)}</td>
+							</tr>`;
+            (product.subtotalWithDiscount) ? total += product.quantity * product.subtotalWithDiscount : total += product.quantity * product.price
+        }
+    }
+    document.getElementById("total_price").innerHTML = total.toFixed(2);
     // Fill the shopping cart modal manipulating the shopping cart dom
 }
 
@@ -132,5 +153,6 @@ function removeFromCart(id) {
 }
 
 function open_modal() {
+    applyPromotionsCart();
     printCart();
 }
