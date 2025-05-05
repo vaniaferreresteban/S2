@@ -5,23 +5,62 @@ function validate() {
 	// Get the input fields
 	var fName = document.getElementById("fName");
 	var fEmail = document.getElementById("fEmail");
+	var fAddress = document.getElementById("fAddress");
+	var fLastN = document.getElementById("fLastN");
+	var fPassword = document.getElementById("fPassword");
+	var fPhone = document.getElementById("fPhone");
 
 	// Get the error elements
 	var errorName = document.getElementById("errorName");
-	var errorEmail = document.getElementById("errorEmail");  
-	
+	var errorEmail = document.getElementById("errorEmail");
+	var errorAddress = document.getElementById("errorAddress");
+	var errorLastN = document.getElementById("errorLastN");
+	var errorPassword = document.getElementById("errorPassword");
+	var errorPhone = document.getElementById("errorPhone");
+
 	// Validate fields entered by the user: name, phone, password, and email
-	if(fName.value == ""){
+	if (fName.value == "" || !(/^[A-Za-z]*$/.test(fName.value)) || fName.value.length < 3) {
 		error++;
+		fName.classList.add('is-invalid');
+	} else {
+		fName.classList.remove('is-invalid');
+	}
+	if (fEmail.value == "" || !(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fEmail.value)) || fEmail.value.length < 3) {
+		error++;
+		fEmail.classList.add('is-invalid');
+	} else {
+		fEmail.classList.remove('is-invalid');
+	}
+	if (fAddress.value == "" || fAddress.value.length < 3) {
+		error++;
+		fAddress.classList.add('is-invalid');
+	} else {
+		fAddress.classList.remove('is-invalid');
+	}
+	if (fLastN.value == "" || !(/^[A-Za-z]*$/.test(fLastN.value)) && fLastN.value.length < 3) {
+		error++;
+		fLastN.classList.add('is-invalid');
+	} else {
+		fLastN.classList.remove('is-invalid');
+	}
+	console.log();
+	if (fPassword.value == "" || !(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/.test(fPassword.value)) || fPassword.value.length < 4) {
+		error++;
+		fPassword.classList.add('is-invalid');
+	} else {
+		fPassword.classList.remove('is-invalid');
+	}
+	if (fPhone.value == "" || isNaN(fPhone.value) || fPhone.value.length < 3) {
+		error++;
+		fPhone.classList.add('is-invalid');
+	} else {
+		fPhone.classList.remove('is-invalid');
 	}
 
-	if(fEmail.value == ""){
-		error++;
-	}
-	 
-	if(error>0){
+
+	if (error > 0) {
 		alert("Error");
-	}else{
+	} else {
 		alert("OK");
 	}
 
