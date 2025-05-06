@@ -43,7 +43,6 @@ function validate() {
 	} else {
 		fLastN.classList.remove('is-invalid');
 	}
-	console.log();
 	if (fPassword.value == "" || !(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/.test(fPassword.value)) || fPassword.value.length < 4) {
 		error++;
 		fPassword.classList.add('is-invalid');

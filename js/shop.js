@@ -93,7 +93,6 @@ function buy(id) {
         cart.push(selectedProduct);
     } else {
         let productIndex = cart.findIndex(obj => obj.id === selectedProduct.id);
-
         cart[productIndex].quantity++;
     }
 
@@ -103,8 +102,6 @@ function buy(id) {
 // Exercise 2
 function cleanCart() {
     cart = [];
-    document.getElementById("cart_list").innerHTML = '';
-    document.getElementById("total_price").innerHTML = 0;
     printCart()
 }
 
@@ -128,10 +125,17 @@ function applyPromotionsCart() {
 
 // Exercise 5
 function printCart() {
-    let total = 0;
+    //Get Output Elements
+    let cartList = document.getElementById("cart_list");
+    let totalPrice = document.getElementById("total_price")
+
+    //Cleaning previous print
+    cartList.innerHTML = '';
+    total = 0;
+
     for (let product of cart) {
         if (product.quantity > 0) {
-            document.getElementById("cart_list").innerHTML += `<tr>
+            cartList.innerHTML += `<tr>
 								<th scope="row">${product.name}</th>
 								<td>${product.price.toFixed(2)}</td>
 								<td>${product.quantity}</td>
@@ -140,7 +144,7 @@ function printCart() {
             (product.subtotalWithDiscount) ? total += product.quantity * product.subtotalWithDiscount : total += product.quantity * product.price
         }
     }
-    document.getElementById("total_price").innerHTML = total.toFixed(2);
+    totalPrice.innerHTML = total.toFixed(2);
     // Fill the shopping cart modal manipulating the shopping cart dom
 }
 
@@ -149,6 +153,15 @@ function printCart() {
 
 // Exercise 7
 function removeFromCart(id) {
+    cart.forEach((product, index) => {
+        if (product.id == id && product.quantity == 1) {
+            cart.splice(index, 1)
+        }
+        if (product.id == id && product.quantity > 1) {
+            product.quantity--;
+        }
+
+    })
 
 }
 
