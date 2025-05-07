@@ -118,6 +118,8 @@ function applyPromotionsCart() {
     cart.forEach(product => {
         if (product.offer?.number <= product.quantity) {
             product.subtotalWithDiscount = (product.price / 100) * (100 - product.offer?.percent);
+        } else if (product.offer?.number > product.quantity) {
+            delete product.subtotalWithDiscount
         }
     });
     // Apply promotions to each item in the array "cart"
@@ -138,7 +140,7 @@ function printCart() {
             cartList.innerHTML += `<tr>
 								<th scope="row">${product.name}</th>
 								<td>${product.price.toFixed(2)}</td>
-								<td>${product.quantity}</td>
+								<td><input type=number value="${product.quantity}" onchange="adjustQuantityFromCart(this.value,${product.id})"></td>
 								<td>${(product.subtotalWithDiscount) ? (product.quantity * product.subtotalWithDiscount).toFixed(2) : (product.quantity * product.price).toFixed(2)}</td>
 							</tr>`;
             (product.subtotalWithDiscount) ? total += product.quantity * product.subtotalWithDiscount : total += product.quantity * product.price
@@ -151,18 +153,18 @@ function printCart() {
 
 // ** Nivell II **
 
-// Exercise 7
-function removeFromCart(id) {
+// Exercise 7 ""removeFromCart, pero también suma así que nombre semántico
+function adjustQuantityFromCart(quantity, id) {
     cart.forEach((product, index) => {
-        if (product.id == id && product.quantity == 1) {
+        if (product.id == id && quantity == 0) {
             cart.splice(index, 1)
         }
-        if (product.id == id && product.quantity > 1) {
-            product.quantity--;
+        if (product.id == id) {
+            product.quantity = quantity;
         }
-
-    })
-
+    });
+    open_modal();
+    console.log(cart);
 }
 
 function open_modal() {
